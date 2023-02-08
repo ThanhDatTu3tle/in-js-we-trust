@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
-import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles)
 
@@ -9,6 +8,7 @@ const Button: React.FC<any> = ({
     href,
     primary = false,
     outline = false,
+    github = false,
     small = false, 
     large = false, 
     disable = false,
@@ -35,7 +35,7 @@ const Button: React.FC<any> = ({
       // 
       if (to) {
         props.to = to
-        // Comp = Link
+        Comp = 'Link'
       } else if (href) {
         props.href = href
         Comp = 'a'
@@ -44,6 +44,7 @@ const Button: React.FC<any> = ({
       const classes = cx('wrapper', {
         primary,
         outline,
+        github,
         small,
         large,
         disable

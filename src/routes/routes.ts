@@ -5,9 +5,11 @@ import { MainLayout } from "../layouts/MainLayout";
 
 // Pages
 import Home from "../pages/Home";
+import Challenge from "../pages/Challenge";
 
 const publicRoutes = [
     { path: config.routes.home, component: Home, layout: MainLayout },
+    { path: config.routes.challenge, component: Challenge, layout: MainLayout },
 ]
   
 const privateRoutes: any = [
