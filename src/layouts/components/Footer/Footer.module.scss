@@ -1,0 +1,24 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 200px;
+    padding: 100px;
+    color: #a9b3bb;
+    background-color: #181821;
+}
+
+.logo {
+
+}
+
+.yeungon-info {
+    display: flex;
+    flex-direction: column;
+
+    .a-tag {
+        color: #a9b3bb;
+    }
+}

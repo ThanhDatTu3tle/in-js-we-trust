@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+}
+
+.shout-out {
+    display: flex;
+    flex-direction: column;
+}
