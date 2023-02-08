@@ -1,0 +1,114 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+
+    .a-tag {
+        margin-right: 6px;
+        color: black;
+    }
+
+    .tags {
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0;
+        
+        .tag {
+            flex: 1 50%;
+            max-width: fit-content;
+            padding: 4px 8px;
+            margin: 5px 5px 5px 0px;
+            border-radius: 20px;
+            font-size: 1.2rem;
+            color: #c0cdd8;
+            background-color: #181821cb;
+            box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+
+            &:hover {
+                background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+                black;
+                color: #fff;
+            }
+        }
+    }
+
+    .info-about {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .word {
+            margin-left: 1rem;
+        }
+    }
+
+    .contributors {
+        display: flex;
+        flex-direction: row;
+
+        .counter {
+            background-color: rgba(99,110,123,0.4);
+            border: solid rgba(0,0,0,0);
+            border-radius: 2em;
+            color: black;
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            padding: 0 6px;
+            margin-left: 6px;
+            text-align: center;
+        }
+    }
+
+    .avatar {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        margin: 8px 10px 0px 0px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: transparent;
+        box-shadow: 0 4px 8px rgb(0 0 0 / 15%);
+    }
+
+    .contributor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .ruler {
+        width: 90%;
+        height: 8px;
+        margin: 12px 0px;
+        border-radius: 10px;
+        background-color: #f1e05a !important;
+    }
+
+    .detail {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            margin: 0px 10px 0px 0px;
+            border-radius: 50%;
+            background-color: #f1e05a !important;
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    width: 100%;
+}
