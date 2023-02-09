@@ -1,5 +1,5 @@
 import * as React from 'react';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import classNames from "classnames/bind";
 
@@ -9,10 +9,23 @@ import Button from '../../components/Button';
 import Header from '../../layouts/components/Header';
 import Footer from '../../layouts/components/Footer';
 import About from '../../layouts/components/About';
+import Question from '../../layouts/components/Question';
 
 const cx = classNames.bind(styles)
 
 const Challenge: React.FC<any> = () => {
+
+    const [questions, setQuestions] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/question`)
+          .then((response) => response.json())
+          .then((data) => {
+            setQuestions(data);
+            console.log(data)
+          });
+      }, []);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
@@ -46,6 +59,19 @@ const Challenge: React.FC<any> = () => {
 
                 <div className={cx('question')}>
                     Question 1
+
+                    {questions !== null ? (
+                        <>
+                            <div className={cx('products')}>
+                                {questions.map((data) => (
+                                    <Question key={data} data={data} />
+                                ))}
+                            </div>
+                        </>
+                        ) : (
+                        <></>
+                        )
+                    }
                 </div>
 
                 <About />
