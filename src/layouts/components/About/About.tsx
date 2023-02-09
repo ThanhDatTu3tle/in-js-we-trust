@@ -95,7 +95,7 @@ const About: React.FC<any> = () => {
             <div className={cx('ruler')}></div>
             <div className={cx('detail')}>
                 <div className={cx('dot')}></div>
-                <p>JavaScript</p>100.0%
+                <p>JavaScript    100.0%</p>
             </div>
         </div>
     )

@@ -1,3 +1,67 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-ques-choices {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 20px;
     
+    .img-ques {
+        width: 70%;
+        border-radius: 12px;
+    }
+
+    .multi-choices {
+        margin-left: 20px;
+
+        .choice {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .checkbox {
+                width: 30px;
+                height: 30px;
+                border-style: solid;
+                border-radius: 12px;
+                border-width: 0cap;
+                border-color: #181821cb;
+                margin-right: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background: transparent;
+                    border-color: black;
+                }
+
+                &:active {
+                    background: #f04f23ab;
+                    border-color: #f05123;
+                }
+            }
+        }
+    }
+}
+
+.answer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .img-ans {
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 12px;
+    }
+}
+
+.line {
+    width: 100%;
+    height: 10px;
+    margin: 20px 0px 10px 0px;
+    background-color: #181821cb;
 }

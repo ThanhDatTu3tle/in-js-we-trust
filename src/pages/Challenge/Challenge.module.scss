@@ -32,9 +32,7 @@
 
     .btns {
         display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        margin-top: 10px;
+        flex-direction: row;
     }
 }
 
@@ -47,6 +45,12 @@
     border-radius: 10px;
     background-color: #fff;
     box-shadow: 0 1px 4px rgb(0 0 0 / 15%);
+
+    .questions {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
 }
 
 .footer {

@@ -10,6 +10,7 @@ import Header from '../../layouts/components/Header';
 import Footer from '../../layouts/components/Footer';
 import About from '../../layouts/components/About';
 import Question from '../../layouts/components/Question';
+import QuestionPalette from '../../layouts/components/QuestionPalette';
 
 const cx = classNames.bind(styles)
 
@@ -22,7 +23,6 @@ const Challenge: React.FC<any> = () => {
           .then((response) => response.json())
           .then((data) => {
             setQuestions(data);
-            console.log(data)
           });
       }, []);
 
@@ -37,32 +37,24 @@ const Challenge: React.FC<any> = () => {
                     <h4>Question Palette</h4>
 
                     <div className={cx('btns')}>
-                        <Button tiny>1</Button>
-                        <Button tiny>2</Button>
-                        <Button tiny>3</Button>
-                        <Button tiny>4</Button>
-                        <Button tiny>5</Button>
-                        <Button tiny>6</Button>
-                        <Button tiny>7</Button>
-                        <Button tiny>8</Button>
-                        <Button tiny>9</Button>
-                        <Button tiny>10</Button>
-                        <Button tiny>11</Button>
-                        <Button tiny>12</Button>
-                        <Button tiny>13</Button>
-                        <Button tiny>14</Button>
-                        <Button tiny>15</Button>
-                        <Button tiny>16</Button>
+                        {questions !== null ? (
+                            <>                              
+                                {questions.map((data) => (
+                                    <QuestionPalette key={data} data={data} />
+                                ))}
+                            </>
+                            ) : (
+                            <></>
+                            )
+                        }
                     </div>
                     
                 </div>
 
                 <div className={cx('question')}>
-                    Question 1
-
                     {questions !== null ? (
                         <>
-                            <div className={cx('products')}>
+                            <div className={cx('questions')}>
                                 {questions.map((data) => (
                                     <Question key={data} data={data} />
                                 ))}
