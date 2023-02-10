@@ -19,7 +19,7 @@ const Challenge: React.FC<any> = () => {
     const [questions, setQuestions] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/question`)
+        fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question`)
           .then((response) => response.json())
           .then((data) => {
             setQuestions(data);
