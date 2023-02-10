@@ -35,7 +35,7 @@ const Home: React.FC<any> = () => {
                     <br />
 
                     <div className={cx('btn')}>
-                        <Button primary href="/challenge">Let try the test!!!</Button>
+                        <Button primary href="/question1">Let try the test!!!</Button>
                     </div>
                 </div>
             </div>

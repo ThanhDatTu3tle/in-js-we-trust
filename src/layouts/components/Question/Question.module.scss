@@ -23,24 +23,64 @@
             align-items: center;
             margin-bottom: 20px;
 
-            .checkbox {
+            .checkbox-container {
                 width: 30px;
                 height: 30px;
-                border-style: solid;
-                border-radius: 12px;
-                border-width: 0cap;
-                border-color: #181821cb;
                 margin-right: 5px;
                 cursor: pointer;
 
-                &:hover {
-                    background: transparent;
-                    border-color: black;
+                .checkbox {
+                    width: 100%;
+                    height: 100%;
+                    border-style: solid;
+                    border-radius: 12px;
+                    border-width: 0cap;
+                    border-color: #181821cb;
+
+                    &:hover {
+                        background: transparent;
+                        border-color: black;
+                    }
                 }
 
-                &:active {
-                    background: #f04f23ab;
+                .checkbox-active-a {
+                    width: 100%;
+                    height: 100%;
+                    border-style: solid;
+                    border-radius: 12px;
+                    border-width: 0cap;
                     border-color: #f05123;
+                    background: #f04f23ab;
+                }
+
+                .checkbox-active-b {
+                    width: 100%;
+                    height: 100%;
+                    border-style: solid;
+                    border-radius: 12px;
+                    border-width: 0cap;
+                    border-color: #f05123;
+                    background: #f04f23ab;
+                }
+
+                .checkbox-active-c {
+                    width: 100%;
+                    height: 100%;
+                    border-style: solid;
+                    border-radius: 12px;
+                    border-width: 0cap;
+                    border-color: #f05123;
+                    background: #f04f23ab;
+                }
+
+                .checkbox-active-d {
+                    width: 100%;
+                    height: 100%;
+                    border-style: solid;
+                    border-radius: 12px;
+                    border-width: 0cap;
+                    border-color: #f05123;
+                    background: #f04f23ab;
                 }
             }
         }
@@ -51,17 +91,19 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 10px;
+
+    .btn-answer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 70%;
+    }
 
     .img-ans {
         margin-top: 10px;
         width: 100%;
         border-radius: 12px;
     }
-}
-
-.line {
-    width: 100%;
-    height: 10px;
-    margin: 20px 0px 10px 0px;
-    background-color: #181821cb;
 }

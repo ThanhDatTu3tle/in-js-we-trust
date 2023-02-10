@@ -41,13 +41,12 @@
   .outline {
     border-color: #f05123;
     color: #f05123;
+    border-radius: 5px;
   
     &:hover {
       background-color: rgba(254, 44, 85, 0.06);
     }
   }
-
-
   
   // Button size
   .tiny {
@@ -69,6 +68,23 @@
         #f05123;
         color: #fff;
     }
+  }
+
+  .tinyActive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #f05123;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 0;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+    #f05123;
+    color: #fff;
   }
 
   .small {

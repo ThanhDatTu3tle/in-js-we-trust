@@ -9,6 +9,7 @@ const Button: React.FC<any> = ({
     primary = false,
     outline = false,
     tiny = false,
+    tinyActive = false,
     small = false, 
     large = false, 
     disable = false,
@@ -45,6 +46,7 @@ const Button: React.FC<any> = ({
         primary,
         outline,
         tiny,
+        tinyActive,
         small,
         large,
         disable

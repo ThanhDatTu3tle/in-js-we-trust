@@ -1,30 +1,36 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 import classNames from "classnames/bind";
 
-import styles from './Challenge.module.scss';
-// import config from '../../config';
-import Button from '../../components/Button';
-import Header from '../../layouts/components/Header';
-import Footer from '../../layouts/components/Footer';
-import About from '../../layouts/components/About';
-import Question from '../../layouts/components/Question';
-import QuestionPalette from '../../layouts/components/QuestionPalette';
+import styles from './Question1.module.scss';
+import Header from '../../../layouts/components/Header';
+import Footer from '../../../layouts/components/Footer';
+import About from '../../../layouts/components/About';
+import Question from '../../../layouts/components/Question';
+import QuestionPalette from '../../../layouts/components/QuestionPalette';
 
 const cx = classNames.bind(styles)
 
-const Challenge: React.FC<any> = () => {
+const Question1: React.FC<any> = () => {
 
     const [questions, setQuestions] = useState([]);
+    const [question, setQuestion] = useState([]);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question`)
           .then((response) => response.json())
           .then((data) => {
-            setQuestions(data);
+            setQuestions(data)
           });
-      }, []);
+    }, []);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question/63e54093f8c965ae12e13c3c`)
+          .then((response) => response.json())
+          .then((data) => {
+            setQuestion(data)
+          });
+    }, []);
 
     return (
         <div className={cx('wrapper')}>
@@ -38,10 +44,10 @@ const Challenge: React.FC<any> = () => {
 
                     <div className={cx('btns')}>
                         {questions !== null ? (
-                            <>                              
+                            <>      
                                 {questions.map((data) => (
                                     <QuestionPalette key={data} data={data} />
-                                ))}
+                                ))}                                                                                                           
                             </>
                             ) : (
                             <></>
@@ -52,13 +58,9 @@ const Challenge: React.FC<any> = () => {
                 </div>
 
                 <div className={cx('question')}>
-                    {questions !== null ? (
-                        <>
-                            <div className={cx('questions')}>
-                                {questions.map((data) => (
-                                    <Question key={data} data={data} />
-                                ))}
-                            </div>
+                    {question !== null ? (
+                        <>        
+                            <Question key={question} data={question} />                                                                                                                      
                         </>
                         ) : (
                         <></>
@@ -76,4 +78,4 @@ const Challenge: React.FC<any> = () => {
     )
 }
 
-export default Challenge;
+export default Question1;
