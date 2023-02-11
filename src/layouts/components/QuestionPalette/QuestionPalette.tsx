@@ -11,23 +11,18 @@ const QuestionPalette: React.FC<any> = ({ data }) => {
 
     const currentQuesState = localStorage.getItem(`${data.number}`)
     const [btnState, setBtnState] = useState(currentQuesState)
-    
-    // console.log(currentQuesState)
 
-    // const handelChangeState = () => {
-    //     if (currentQuesState !== '') {
-    //         setBtnState(`${currentQuesState}`)
-    //     } else if (currentQuesState === '') {
-    //         setBtnState('')
-    //     }
-    // }
+    const handleLinkToCurrQues = () => {
+        const currNumberQues = data.number
+        window.location.href = `${process.env.REACT_APP_BASE_URL}question${currNumberQues}`
+    }
 
     return (
         <div className={cx('wrapper')}>
             {btnState === null ? (
-                <><Button tiny key={data} data={data}>{data.number}</Button></>
+                <><Button tiny onClick={handleLinkToCurrQues} key={data} data={data}>{data.number}</Button></>
             ) : (
-                <><Button tinyActive>{data.number}</Button></>
+                <><Button tinyActive onClick={handleLinkToCurrQues}>{data.number}</Button></>
             )}
         </div>
     )

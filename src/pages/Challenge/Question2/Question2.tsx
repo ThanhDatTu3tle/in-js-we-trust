@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import classNames from "classnames/bind";
 
 import styles from './Question2.module.scss';
+import Button from '../../../components/Button';
 import Header from '../../../layouts/components/Header';
 import Footer from '../../../layouts/components/Footer';
 import About from '../../../layouts/components/About';
@@ -55,6 +56,7 @@ const Question2: React.FC<any> = () => {
                         }
                     </div>
                     
+                    <Button outline>Submit!</Button>
                 </div>
 
                 <div className={cx('question')}>

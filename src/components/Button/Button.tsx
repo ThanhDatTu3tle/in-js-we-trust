@@ -33,7 +33,6 @@ const Button: React.FC<any> = ({
         })
       }
     
-      // 
       if (to) {
         props.to = to
         Comp = 'Link'

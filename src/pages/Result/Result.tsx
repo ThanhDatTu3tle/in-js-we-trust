@@ -2,20 +2,18 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import classNames from "classnames/bind";
 
-import styles from './Question1.module.scss';
-import Button from '../../../components/Button';
-import Header from '../../../layouts/components/Header';
-import Footer from '../../../layouts/components/Footer';
-import About from '../../../layouts/components/About';
-import Question from '../../../layouts/components/Question';
-import QuestionPalette from '../../../layouts/components/QuestionPalette';
+import styles from './Result.module.scss';
+import Header from '../../layouts/components/Header';
+import Footer from '../../layouts/components/Footer';
+import QuestionPalette from '../../layouts/components/QuestionPalette';
+import QuestionForResult from '../../layouts/components/QuestionForResult';
+import About from '../../layouts/components/About';
 
 const cx = classNames.bind(styles)
 
-const Question1: React.FC<any> = () => {
+const Result: React.FC<any> = () => {
 
     const [questions, setQuestions] = useState([]);
-    const [question, setQuestion] = useState([]);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question`)
@@ -24,18 +22,6 @@ const Question1: React.FC<any> = () => {
             setQuestions(data)
           });
     }, []);
-
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question/63e54093f8c965ae12e13c3c`)
-          .then((response) => response.json())
-          .then((data) => {
-            setQuestion(data)
-          });
-    }, []);
-
-    const handleSubmit = () => {
-        window.location.href = "/result"
-    }
 
     return (
         <div className={cx('wrapper')}>
@@ -59,14 +45,14 @@ const Question1: React.FC<any> = () => {
                             )
                         }
                     </div>
-                    
-                    <Button outline onClick={handleSubmit}>Submit!</Button>
                 </div>
 
                 <div className={cx('question')}>
-                    {question !== null ? (
-                        <>        
-                            <Question key={question} data={question} />                                                                                                                      
+                    {questions !== null ? (
+                        <>       
+                            {questions.map((data) => ( 
+                                <QuestionForResult key={data} data={data} />  
+                            ))}                                                                                                                     
                         </>
                         ) : (
                         <></>
@@ -84,4 +70,4 @@ const Question1: React.FC<any> = () => {
     )
 }
 
-export default Question1;
+export default Result;

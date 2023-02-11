@@ -10,10 +10,12 @@ const cx = classNames.bind(styles)
 
 const Question: React.FC<any> = ({ data }) => {
 
-    const [checkboxA, setCheckboxA] = useState('')
-    const [checkboxB, setCheckboxB] = useState('')
-    const [checkboxC, setCheckboxC] = useState('')
-    const [checkboxD, setCheckboxD] = useState('')
+    const currChoice = localStorage.getItem(`${data.number}`)
+
+    const [checkboxA, setCheckboxA] = useState(currChoice || '')
+    const [checkboxB, setCheckboxB] = useState(currChoice || '')
+    const [checkboxC, setCheckboxC] = useState(currChoice || '')
+    const [checkboxD, setCheckboxD] = useState(currChoice || '')
 
     const [stateAnswer, setStateAnswer] = useState(false)
 
@@ -24,7 +26,7 @@ const Question: React.FC<any> = ({ data }) => {
             setCheckboxB('')
             setCheckboxC('')
             setCheckboxD('')
-        } else if (checkboxA !== '') {
+        } else if (checkboxA === 'A') {
             setCheckboxA('')
             localStorage.setItem(`${data.number}`, '')
         }
@@ -37,7 +39,7 @@ const Question: React.FC<any> = ({ data }) => {
             localStorage.setItem(`${data.number}`, 'B')
             setCheckboxC('')
             setCheckboxD('')
-        } else if (checkboxB !== '') {
+        } else if (checkboxB === 'B') {
             setCheckboxB('')
             localStorage.setItem(`${data.number}`, '')
         }
@@ -50,7 +52,7 @@ const Question: React.FC<any> = ({ data }) => {
             setCheckboxC('C')
             localStorage.setItem(`${data.number}`, 'C')
             setCheckboxD('')
-        } else if (checkboxC !== '') {
+        } else if (checkboxC === 'C') {
             setCheckboxC('')
             localStorage.setItem(`${data.number}`, '')
         }
@@ -63,7 +65,7 @@ const Question: React.FC<any> = ({ data }) => {
             setCheckboxC('')
             setCheckboxD('D')
             localStorage.setItem(`${data.number}`, 'D')
-        } else if (checkboxD !== '') {
+        } else if (checkboxD === 'D') {
             setCheckboxD('')
             localStorage.setItem(`${data.number}`, '')
         }
@@ -80,7 +82,6 @@ const Question: React.FC<any> = ({ data }) => {
     const handleNextQues = () => {
         const currNumberQues = data.number
         const nextNumberQues = currNumberQues + 1
-        console.log(nextNumberQues)
         window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
     }
 
@@ -93,10 +94,10 @@ const Question: React.FC<any> = ({ data }) => {
                 <div className={cx('multi-choices')}>
                     <div className={cx('choice')}>
                         <div className={cx('checkbox-container')} onClick={handleActiveA}>
-                            {checkboxA === '' ? (
-                                <><div className={cx('checkbox')}></div></>
+                            {checkboxA === 'A' ? (
+                                <><div className={cx('checkbox-active-a')}></div></>                              
                             ) : (
-                                <><div className={cx('checkbox-active-a')}></div></>
+                                <><div className={cx('checkbox')}></div></>
                             )}
                         </div>
                         <h3>A. </h3>
@@ -104,10 +105,10 @@ const Question: React.FC<any> = ({ data }) => {
                     </div>
                     <div className={cx('choice')}>
                         <div className={cx('checkbox-container')} onClick={handleActiveB}>
-                            {checkboxB === '' ? (
-                                <><div className={cx('checkbox')}></div></>
+                            {checkboxB === 'B' ? (
+                                <><div className={cx('checkbox-active-b')}></div></>                            
                             ) : (
-                                <><div className={cx('checkbox-active-b')}></div></>
+                                <><div className={cx('checkbox')}></div></>
                             )}
                         </div>
                         <h3>B. </h3>
@@ -115,10 +116,10 @@ const Question: React.FC<any> = ({ data }) => {
                     </div>
                     <div className={cx('choice')}>
                         <div className={cx('checkbox-container')} onClick={handleActiveC}>
-                            {checkboxC === '' ? (
-                                <><div className={cx('checkbox')}></div></>
+                            {checkboxC === 'C' ? (
+                                <><div className={cx('checkbox-active-c')}></div></>                  
                             ) : (
-                                <><div className={cx('checkbox-active-c')}></div></>
+                                <><div className={cx('checkbox')}></div></>
                             )}
                         </div>
                         <h3>C. </h3>
@@ -126,10 +127,10 @@ const Question: React.FC<any> = ({ data }) => {
                     </div>
                     <div className={cx('choice')}>
                         <div className={cx('checkbox-container')} onClick={handleActiveD}>
-                            {checkboxD === '' ? (
-                                <><div className={cx('checkbox')}></div></>
+                            {checkboxD === 'D' ? (
+                                <><div className={cx('checkbox-active-d')}></div></>                             
                             ) : (
-                                <><div className={cx('checkbox-active-d')}></div></>
+                                <><div className={cx('checkbox')}></div></>
                             )}
                         </div>
                         <h3>D. </h3>
