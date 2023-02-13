@@ -87,6 +87,38 @@
     color: #fff;
   }
 
+  .tinyActiveGreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #19ce7a;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 0;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    background: #19ce7a8c;
+    color: #fff;
+  }
+
+  .tinyActiveRed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #ff5252;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 0;
+    margin-right: 3px;
+    margin-bottom: 5px;
+    background: #ff5252b0;
+    color: #fff;
+  }
+
   .small {
     display: flex;
     justify-content: center;

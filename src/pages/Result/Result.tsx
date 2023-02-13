@@ -1,17 +1,22 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import classNames from "classnames/bind";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 import styles from './Result.module.scss';
-import Header from '../../layouts/components/Header';
+import Button from '../../components/Button/Button';
+import Statistical from '../../layouts/components/Statistical/Statistical';
 import Footer from '../../layouts/components/Footer';
-import QuestionPalette from '../../layouts/components/QuestionPalette';
+import QuestionPaletteForResult from '../../layouts/components/QuestionPaletteForResult/QuestionPaletteForResult';
 import QuestionForResult from '../../layouts/components/QuestionForResult';
 import About from '../../layouts/components/About';
 
 const cx = classNames.bind(styles)
 
 const Result: React.FC<any> = () => {
+
+    const MySwal = withReactContent(Swal);
 
     const [questions, setQuestions] = useState([]);
 
@@ -22,6 +27,19 @@ const Result: React.FC<any> = () => {
             setQuestions(data)
           });
     }, []);
+
+    const handleTryAgain = async () => {
+        localStorage.clear();
+        await MySwal.fire({
+            title: "No pain no gain!!!",
+            icon: "success",
+            didOpen: () => {
+              MySwal.showLoading();
+            },
+            timer: 3000,
+        });
+        window.location.href = `${process.env.REACT_APP_BASE_URL}question1`
+    }
 
     return (
         <div className={cx('wrapper')}>
@@ -37,7 +55,7 @@ const Result: React.FC<any> = () => {
                         {questions !== null ? (
                             <>      
                                 {questions.map((data) => (
-                                    <QuestionPalette key={data} data={data} />
+                                    <QuestionPaletteForResult key={data} data={data} />
                                 ))}                                                                                                           
                             </>
                             ) : (
@@ -45,9 +63,14 @@ const Result: React.FC<any> = () => {
                             )
                         }
                     </div>
+
+                    <Button outline onClick={handleTryAgain}>Try again!!!</Button>
                 </div>
 
                 <div className={cx('question')}>
+                    {/* <Statistical></Statistical>
+                    <br /> */}
+
                     {questions !== null ? (
                         <>       
                             {questions.map((data) => ( 
@@ -57,7 +80,7 @@ const Result: React.FC<any> = () => {
                         ) : (
                         <></>
                         )
-                    }
+                    }                  
                 </div>
 
                 <About />

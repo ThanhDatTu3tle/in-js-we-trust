@@ -10,6 +10,7 @@ const cx = classNames.bind(styles)
 
 const QuestionForResult: React.FC<any> = ({ data }) => {
 
+    const score = localStorage.setItem(`Your score`, '0')
     const currChoice = localStorage.getItem(`${data.number}`)
     const rightAnswer = data.answer
     
@@ -23,6 +24,10 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
     const [rightCheckboxC, setRightCheckboxC] = useState(rightAnswer === 'C' ? ('C') : (null))
     const [rightCheckboxD, setRightCheckboxD] = useState(rightAnswer === 'D' ? ('D') : (null))
 
+    const handleCountScore = () => {
+        console.log('Ngu')
+    }
+
     const [stateAnswer, setStateAnswer] = useState(false)
 
     const handleShowAnswer = () => {
@@ -35,7 +40,7 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
 
     return (
         <div className={cx('wrapper')}>
-            <h3>{data.number}. {data.question}</h3>
+            <a id={`${data.number}`} className={cx('a-tag')}><h3>{data.number}. {data.question}</h3></a>
             <br />
             <div className={cx('img-ques-choices')}>
                 <Image src={data.image} className={cx('img-ques')}/>
@@ -45,7 +50,7 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                             <>
                                 <div className={cx('checkbox-container')}>
                                     {currCheckboxA === rightCheckboxA ? (
-                                        <><div className={cx('checkbox-active-a')}></div></>                              
+                                        <><div className={cx('checkbox-active-a')} onClick={handleCountScore}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox-fail')}></div></>
                                     )}                  
@@ -70,7 +75,7 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                             <>
                                 <div className={cx('checkbox-container')}>
                                     {currCheckboxB === rightCheckboxB ? (
-                                        <><div className={cx('checkbox-active-b')}></div></>                              
+                                        <><div className={cx('checkbox-active-b')} onClick={handleCountScore}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox-fail')}></div></>
                                     )}                  
@@ -141,6 +146,8 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <p> {data.choiceD}</p>
                     </div>
                 </div>
+
+                Ngu
             </div>
             
             <div className={cx('answer')}>
@@ -148,7 +155,6 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                     <Button primary onClick={handleShowAnswer}><p>Check your choice!!!</p></Button>
                 </div>
                 
-
                 {stateAnswer === false ? (
                     <></>
                 ) : (
@@ -157,7 +163,7 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <h3>Answer: {data.answer}</h3>
                         <Image src={data.explain} className={cx('img-ans')}/>
                     </>
-                )}             
+                )}              
             </div>
         </div>
     )

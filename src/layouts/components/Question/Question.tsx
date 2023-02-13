@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import classNames from "classnames/bind";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 import styles from './Question.module.scss';
 import Image from '../../../components/Image';
@@ -9,6 +11,8 @@ import Button from '../../../components/Button';
 const cx = classNames.bind(styles)
 
 const Question: React.FC<any> = ({ data }) => {
+
+    const MySwal = withReactContent(Swal);
 
     const currChoice = localStorage.getItem(`${data.number}`)
 
@@ -79,13 +83,29 @@ const Question: React.FC<any> = ({ data }) => {
         }
     }
 
-    const handleNextQues = () => {
+    const handleNextQues = async () => {
         const currNumberQues = data.number
         const nextNumberQues = currNumberQues + 1
 
         if (nextNumberQues === 8) {
+            await MySwal.fire({
+                title: "Please wait a moment...",
+                icon: "success",
+                didOpen: () => {
+                  MySwal.showLoading();
+                },
+                timer: 1000,
+            });
             window.location.href = `${process.env.REACT_APP_BASE_URL}apologize`
         } else {
+            await MySwal.fire({
+                title: "Please wait a moment...",
+                icon: "success",
+                didOpen: () => {
+                  MySwal.showLoading();
+                },
+                timer: 1000,
+            });
             window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
         }
     }
@@ -150,7 +170,6 @@ const Question: React.FC<any> = ({ data }) => {
                     <Button outline onClick={handleNextQues}><p>Next Question</p></Button>
                 </div>
                 
-
                 {stateAnswer === false ? (
                     <></>
                 ) : (
