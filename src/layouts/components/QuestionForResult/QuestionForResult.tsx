@@ -12,45 +12,18 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
 
     const currChoice = localStorage.getItem(`${data.number}`)
     const rightAnswer = data.answer
+    
+    const [currCheckboxA, setCurrCheckboxA] = useState(currChoice === 'A' ? ('A') : (null))
+    const [currCheckboxB, setCurrCheckboxB] = useState(currChoice === 'B' ? ('B') : (null))
+    const [currCheckboxC, setCurrCheckboxC] = useState(currChoice === 'C' ? ('C') : (null))
+    const [currCheckboxD, setCurrCheckboxD] = useState(currChoice === 'D' ? ('D') : (null))
 
-    const [checkboxA, setCheckboxA] = useState(rightAnswer)
-    const [checkboxB, setCheckboxB] = useState(rightAnswer)
-    const [checkboxC, setCheckboxC] = useState(rightAnswer)
-    const [checkboxD, setCheckboxD] = useState(rightAnswer)
+    const [rightCheckboxA, setRightCheckboxA] = useState(rightAnswer === 'A' ? ('A') : (null))
+    const [rightCheckboxB, setRightCheckboxB] = useState(rightAnswer === 'B' ? ('B') : (null))
+    const [rightCheckboxC, setRightCheckboxC] = useState(rightAnswer === 'C' ? ('C') : (null))
+    const [rightCheckboxD, setRightCheckboxD] = useState(rightAnswer === 'D' ? ('D') : (null))
 
     const [stateAnswer, setStateAnswer] = useState(false)
-
-    const handleActiveA = () => {
-        if (checkboxA === currChoice) {
-            setCheckboxA('A')
-        } else if (checkboxA !== currChoice) {
-            setCheckboxA('')
-        }
-    }
-
-    const handleActiveB = () => {
-        if (checkboxB === currChoice) {
-            setCheckboxB('B')
-        } else if (checkboxB !== currChoice) {
-            setCheckboxB('')
-        }
-    }
-
-    const handleActiveC = () => {
-        if (checkboxC === currChoice) {
-            setCheckboxC('C')
-        } else if (checkboxC !== currChoice) {
-            setCheckboxC('')
-        }
-    }
-
-    const handleActiveD = () => {
-        if (checkboxD === currChoice) {
-            setCheckboxD('D')
-        } else if (checkboxD !== currChoice) {
-            setCheckboxD('')
-        }
-    }
 
     const handleShowAnswer = () => {
         if (stateAnswer === false) {
@@ -68,16 +41,20 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                 <Image src={data.image} className={cx('img-ques')}/>
                 <div className={cx('multi-choices')}>
                     <div className={cx('choice')}>
-                        {checkboxA !== rightAnswer ? (
+                        {currCheckboxA !== null ? (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveA}>
-                                    <><div className={cx('checkbox-fail')}></div></>                              
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxA === rightCheckboxA ? (
+                                        <><div className={cx('checkbox-active-a')}></div></>                              
+                                    ) : (
+                                        <><div className={cx('checkbox-fail')}></div></>
+                                    )}                  
                                 </div>
                             </>
                         ) : (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveA}>
-                                    {checkboxA === 'A' ? (
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxA !== rightCheckboxA ? (
                                         <><div className={cx('checkbox-active-a')}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox')}></div></>
@@ -89,16 +66,20 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <p> {data.choiceA}</p>
                     </div>
                     <div className={cx('choice')}>
-                        {checkboxB !== rightAnswer ? (
+                        {currCheckboxB !== null ? (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveB}>
-                                    <><div className={cx('checkbox-fail')}></div></>                              
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxB === rightCheckboxB ? (
+                                        <><div className={cx('checkbox-active-b')}></div></>                              
+                                    ) : (
+                                        <><div className={cx('checkbox-fail')}></div></>
+                                    )}                  
                                 </div>
                             </>
                         ) : (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveB}>
-                                    {checkboxB === 'B' ? (
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxB !== rightCheckboxB ? (
                                         <><div className={cx('checkbox-active-b')}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox')}></div></>
@@ -110,16 +91,20 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <p> {data.choiceB}</p>
                     </div>
                     <div className={cx('choice')}>
-                        {checkboxC !== rightAnswer ? (
+                        {currCheckboxC !== null ? (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveC}>
-                                    <><div className={cx('checkbox-fail')}></div></>                              
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxC === rightCheckboxC ? (
+                                        <><div className={cx('checkbox-active-c')}></div></>                              
+                                    ) : (
+                                        <><div className={cx('checkbox-fail')}></div></>
+                                    )}                  
                                 </div>
                             </>
                         ) : (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveC}>
-                                    {checkboxC === 'C' ? (
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxC !== rightCheckboxC ? (
                                         <><div className={cx('checkbox-active-c')}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox')}></div></>
@@ -131,16 +116,20 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <p> {data.choiceC}</p>
                     </div>
                     <div className={cx('choice')}>
-                        {checkboxD !== rightAnswer ? (
+                        {currCheckboxD !== null ? (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveD}>
-                                    <><div className={cx('checkbox-fail')}></div></>                              
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxD === rightCheckboxD ? (
+                                        <><div className={cx('checkbox-active-d')}></div></>                              
+                                    ) : (
+                                        <><div className={cx('checkbox-fail')}></div></>
+                                    )}                  
                                 </div>
                             </>
                         ) : (
                             <>
-                                <div className={cx('checkbox-container')} onClick={handleActiveD}>
-                                    {checkboxD === 'D' ? (
+                                <div className={cx('checkbox-container')}>
+                                    {currCheckboxD !== rightCheckboxD ? (
                                         <><div className={cx('checkbox-active-d')}></div></>                              
                                     ) : (
                                         <><div className={cx('checkbox')}></div></>

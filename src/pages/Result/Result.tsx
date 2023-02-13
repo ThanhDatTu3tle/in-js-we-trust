@@ -25,9 +25,9 @@ const Result: React.FC<any> = () => {
 
     return (
         <div className={cx('wrapper')}>
-            <div className={cx('header')}>
+            {/* <div className={cx('header')}>
                 <Header />
-            </div>
+            </div> */}
 
             <div className={cx('main')}>
                 <div className={cx('question-palette')}>
