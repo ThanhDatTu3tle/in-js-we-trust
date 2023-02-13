@@ -82,7 +82,12 @@ const Question: React.FC<any> = ({ data }) => {
     const handleNextQues = () => {
         const currNumberQues = data.number
         const nextNumberQues = currNumberQues + 1
-        window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
+
+        if (nextNumberQues === 8) {
+            window.location.href = `${process.env.REACT_APP_BASE_URL}apologize`
+        } else {
+            window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
+        }
     }
 
     return (

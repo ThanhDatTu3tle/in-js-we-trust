@@ -14,7 +14,7 @@ import QuestionPalette from '../../../layouts/components/QuestionPalette';
 
 const cx = classNames.bind(styles)
 
-const Question1: React.FC<any> = () => {
+const Question4: React.FC<any> = () => {
 
     const MySwal = withReactContent(Swal);
 
@@ -27,15 +27,15 @@ const Question1: React.FC<any> = () => {
           .then((data) => {
             setQuestions(data)
           });
-    }, []);
+      }, []);
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question/63e54093f8c965ae12e13c3c`)
+        fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question/63ea2588449ada507024a4a8`)
           .then((response) => response.json())
           .then((data) => {
             setQuestion(data)
           });
-    }, []);
+      }, []);
 
     const handleSubmit = async () => {
         await MySwal.fire({
@@ -61,10 +61,10 @@ const Question1: React.FC<any> = () => {
 
                     <div className={cx('btns')}>
                         {questions !== null ? (
-                            <>      
+                            <>                                                    
                                 {questions.map((data) => (
                                     <QuestionPalette key={data} data={data} />
-                                ))}                                                                                                           
+                                ))}                                
                             </>
                             ) : (
                             <></>
@@ -77,8 +77,8 @@ const Question1: React.FC<any> = () => {
 
                 <div className={cx('question')}>
                     {question !== null ? (
-                        <>        
-                            <Question key={question} data={question} />                                                                                                                      
+                        <>                                                       
+                            <Question key={question} data={question} />                                                        
                         </>
                         ) : (
                         <></>
@@ -96,4 +96,4 @@ const Question1: React.FC<any> = () => {
     )
 }
 
-export default Question1;
+export default Question4;
