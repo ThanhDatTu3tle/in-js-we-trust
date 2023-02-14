@@ -117,8 +117,8 @@ const Question: React.FC<any> = ({ data }) => {
             <div className={cx('img-ques-choices')}>
                 <Image src={data.image} className={cx('img-ques')}/>
                 <div className={cx('multi-choices')}>
-                    <div className={cx('choice')}>
-                        <div className={cx('checkbox-container')} onClick={handleActiveA}>
+                    <div className={cx('choice')}  onClick={handleActiveA}>
+                        <div className={cx('checkbox-container')}>
                             {checkboxA === 'A' ? (
                                 <><div className={cx('checkbox-active-a')}></div></>                              
                             ) : (
@@ -128,8 +128,8 @@ const Question: React.FC<any> = ({ data }) => {
                         <h3>A. </h3>
                         <p> {data.choiceA}</p>
                     </div>
-                    <div className={cx('choice')}>
-                        <div className={cx('checkbox-container')} onClick={handleActiveB}>
+                    <div className={cx('choice')} onClick={handleActiveB}>
+                        <div className={cx('checkbox-container')}>
                             {checkboxB === 'B' ? (
                                 <><div className={cx('checkbox-active-b')}></div></>                            
                             ) : (
@@ -139,8 +139,8 @@ const Question: React.FC<any> = ({ data }) => {
                         <h3>B. </h3>
                         <p> {data.choiceB}</p>
                     </div>
-                    <div className={cx('choice')}>
-                        <div className={cx('checkbox-container')} onClick={handleActiveC}>
+                    <div className={cx('choice')} onClick={handleActiveC}>
+                        <div className={cx('checkbox-container')}>
                             {checkboxC === 'C' ? (
                                 <><div className={cx('checkbox-active-c')}></div></>                  
                             ) : (
@@ -150,8 +150,8 @@ const Question: React.FC<any> = ({ data }) => {
                         <h3>C. </h3>
                         <p> {data.choiceC}</p>
                     </div>
-                    <div className={cx('choice')}>
-                        <div className={cx('checkbox-container')} onClick={handleActiveD}>
+                    <div className={cx('choice')} onClick={handleActiveD}>
+                        <div className={cx('checkbox-container')}>
                             {checkboxD === 'D' ? (
                                 <><div className={cx('checkbox-active-d')}></div></>                             
                             ) : (

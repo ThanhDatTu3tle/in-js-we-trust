@@ -158,8 +158,6 @@ const QuestionForResult: React.FC<any> = ({ data }) => {
                         <p> {data.choiceD}</p>
                     </div>
                 </div>
-
-                Ngu
             </div>
             
             <div className={cx('answer')}>
