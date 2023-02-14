@@ -38,7 +38,7 @@ const Result: React.FC<any> = () => {
             },
             timer: 3000,
         });
-        window.location.href = `${process.env.REACT_APP_BASE_URL}question1`
+        window.location.href = `https://in-js-we-trust.vercel.app/question1`
     }
 
     return (

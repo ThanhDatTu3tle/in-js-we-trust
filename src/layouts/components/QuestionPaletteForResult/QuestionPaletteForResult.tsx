@@ -15,7 +15,7 @@ const QuestionPaletteForResult: React.FC<any> = ({ data }) => {
 
     const handleLinkToCurrQues = () => {
         const currNumberQues = data.number
-        window.location.href = `${process.env.REACT_APP_BASE_URL}result#${currNumberQues}`
+        window.location.href = `https://in-js-we-trust.vercel.app/result#${currNumberQues}`
     }
 
     return (

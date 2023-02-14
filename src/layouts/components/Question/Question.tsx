@@ -96,7 +96,7 @@ const Question: React.FC<any> = ({ data }) => {
                 },
                 timer: 1000,
             });
-            window.location.href = `${process.env.REACT_APP_BASE_URL}apologize`
+            window.location.href = `https://in-js-we-trust.vercel.app/apologize`
         } else {
             await MySwal.fire({
                 title: "Please wait a moment...",
@@ -106,7 +106,7 @@ const Question: React.FC<any> = ({ data }) => {
                 },
                 timer: 1000,
             });
-            window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
+            window.location.href = `https://in-js-we-trust.vercel.app/question${nextNumberQues}`
         }
     }
 
