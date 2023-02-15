@@ -7,7 +7,7 @@ import Button from '../../../components/Button';
 
 const cx = classNames.bind(styles)
 
-const QuestionPalette: React.FC<any> = ({ data }) => {
+const QuestionPalette: React.FC<any> = ({ data, state }) => {
 
     const currentQuesState = localStorage.getItem(`${data.number}`)
     const btnState = currentQuesState

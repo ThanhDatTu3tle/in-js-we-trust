@@ -4,21 +4,21 @@ import classNames from "classnames/bind";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
-import styles from './Result.module.scss';
-import Button from '../../components/Button/Button';
-// import Statistical from '../../layouts/components/Statistical/Statistical';
-import Footer from '../../layouts/components/Footer';
-import QuestionPaletteForResult from '../../layouts/components/QuestionPaletteForResult/QuestionPaletteForResult';
-import QuestionForResult from '../../layouts/components/QuestionForResult';
-import About from '../../layouts/components/About';
+import styles from './Challenges.module.scss';
+import Button from '../../../components/Button';
+import Footer from '../../../layouts/components/Footer';
+import About from '../../../layouts/components/About';
+import Question from '../../../layouts/components/Question';
+import QuestionPalette from '../../../layouts/components/QuestionPalette';
 
 const cx = classNames.bind(styles)
 
-const Result: React.FC<any> = () => {
+const Challenges: React.FC<any> = () => {
 
     const MySwal = withReactContent(Swal);
 
     const [questions, setQuestions] = useState([]);
+    // const [state, setState] = useState('Ngu')
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question`)
@@ -43,10 +43,6 @@ const Result: React.FC<any> = () => {
 
     return (
         <div className={cx('wrapper')}>
-            {/* <div className={cx('header')}>
-                <Header />
-            </div> */}
-
             <div className={cx('main')}>
                 <div className={cx('question-palette')}>
                     <h4>Question Palette</h4>
@@ -54,8 +50,8 @@ const Result: React.FC<any> = () => {
                     <div className={cx('btns')}>
                         {questions !== null ? (
                             <>      
-                                {questions.map((data) => (
-                                    <QuestionPaletteForResult key={data} data={data} />
+                                {questions.map((data, state) => (
+                                    <QuestionPalette key={data} data={data} state={state} />
                                 ))}                                                                                                           
                             </>
                             ) : (
@@ -68,13 +64,10 @@ const Result: React.FC<any> = () => {
                 </div>
 
                 <div className={cx('question')}>
-                    {/* <Statistical></Statistical>
-                    <br /> */}
-
                     {questions !== null ? (
                         <>       
-                            {questions.map((data) => ( 
-                                <QuestionForResult key={data} data={data} />  
+                            {questions.map((data, state) => ( 
+                                <Question key={data} data={data} state={state} />  
                             ))}                                                                                                                     
                         </>
                         ) : (
@@ -93,4 +86,4 @@ const Result: React.FC<any> = () => {
     )
 }
 
-export default Result;
+export default Challenges;

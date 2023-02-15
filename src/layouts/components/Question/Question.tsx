@@ -10,9 +10,10 @@ import Button from '../../../components/Button';
 
 const cx = classNames.bind(styles)
 
-const Question: React.FC<any> = ({ data }) => {
+const Question: React.FC<any> = ({ data, state }) => {
 
     const MySwal = withReactContent(Swal);
+    console.log(state)
 
     const currChoice = localStorage.getItem(`${data.number}`)
 
