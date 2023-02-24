@@ -7,6 +7,7 @@ import { MainLayout } from "../layouts/MainLayout";
 import Home from "../pages/Home";
 import Result from "../pages/Result";
 import Apologize from "../pages/Apologize/Apologize";
+import QuestionChallenge from "../pages/Challenge/QuestionChallenge";
 
 import Question1 from "../pages/Challenge/Question1";
 import Question2 from "../pages/Challenge/Question2";
@@ -20,6 +21,7 @@ const publicRoutes = [
     { path: config.routes.home, component: Home, layout: MainLayout },
     { path: config.routes.result, component: Result, layout: MainLayout },
     { path: config.routes.apologize, component: Apologize, layout: MainLayout },
+    { path: config.routes.question, component: QuestionChallenge, layout: MainLayout },
 
     { path: config.routes.question1, component: Question1, layout: MainLayout },
     { path: config.routes.question2, component: Question2, layout: MainLayout },

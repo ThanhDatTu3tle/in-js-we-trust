@@ -2,6 +2,7 @@ const routes = {
     home: "/",
     result: "/result",
     apologize: "/apologize",
+    question: "/question",
 
     question1: "/question1",
     question2: "/question2",
