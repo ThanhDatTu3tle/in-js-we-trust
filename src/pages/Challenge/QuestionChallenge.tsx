@@ -14,7 +14,7 @@ import QuestionPalette from '../../layouts/components/QuestionPalette';
 
 const cx = classNames.bind(styles)
 
-const Question1: React.FC<any> = () => {
+const QuestionChallenge: React.FC<any> = () => {
 
     const MySwal = withReactContent(Swal);
 
@@ -98,4 +98,4 @@ const Question1: React.FC<any> = () => {
     )
 }
 
-export default Question1;
+export default QuestionChallenge;

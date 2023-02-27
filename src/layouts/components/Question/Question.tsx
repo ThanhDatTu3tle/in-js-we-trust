@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import classNames from "classnames/bind";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -8,12 +8,17 @@ import styles from './Question.module.scss';
 import Image from '../../../components/Image';
 import Button from '../../../components/Button';
 
+// import { QuestionContext } from '../../../App';
+
 const cx = classNames.bind(styles)
 
-const Question: React.FC<any> = ({ data, state }) => {
+const Question: React.FC<any> = ({ data }) => {
 
     const MySwal = withReactContent(Swal);
-    console.log(state)
+    // const { state } = useContext(QuestionContext)
+
+    // const [questionState, setQuestionState] = useState(state)
+    // console.log(`Question ${data.number} `, questionState)
 
     const currChoice = localStorage.getItem(`${data.number}`)
 
@@ -28,6 +33,7 @@ const Question: React.FC<any> = ({ data, state }) => {
         if (checkboxA === '') {
             setCheckboxA('A')
             localStorage.setItem(`${data.number}`, 'A')
+            // setQuestionState(true)
             setCheckboxB('')
             setCheckboxC('')
             setCheckboxD('')
@@ -97,7 +103,7 @@ const Question: React.FC<any> = ({ data, state }) => {
                 },
                 timer: 1000,
             });
-            window.location.href = `https://in-js-we-trust.vercel.app/apologize`
+            window.location.href = `${process.env.REACT_APP_BASE_URL}apologize`
         } else {
             await MySwal.fire({
                 title: "Please wait a moment...",
@@ -107,7 +113,7 @@ const Question: React.FC<any> = ({ data, state }) => {
                 },
                 timer: 1000,
             });
-            window.location.href = `https://in-js-we-trust.vercel.app/question${nextNumberQues}`
+            window.location.href = `${process.env.REACT_APP_BASE_URL}question${nextNumberQues}`
         }
     }
 

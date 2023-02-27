@@ -18,7 +18,6 @@ const Challenges: React.FC<any> = () => {
     const MySwal = withReactContent(Swal);
 
     const [questions, setQuestions] = useState([]);
-    // const [state, setState] = useState('Ngu')
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_SERVER_BASE_URL}question`)
@@ -38,51 +37,51 @@ const Challenges: React.FC<any> = () => {
             },
             timer: 3000,
         });
-        window.location.href = `https://in-js-we-trust.vercel.app/question1`
+        window.location.href = `${process.env.REACT_APP_BASE_URL}question1`
     }
 
     return (
-        <div className={cx('wrapper')}>
-            <div className={cx('main')}>
-                <div className={cx('question-palette')}>
-                    <h4>Question Palette</h4>
+            <div className={cx('wrapper')}>
+                <div className={cx('main')}>
+                    <div className={cx('question-palette')}>
+                        <h4>Question Palette</h4>
 
-                    <div className={cx('btns')}>
+                        <div className={cx('btns')}>
+                            {questions !== null ? (
+                                <>      
+                                    {questions.map((data, state) => (
+                                        <QuestionPalette key={data} data={data} state={state} />
+                                    ))}                                                                                                           
+                                </>
+                                ) : (
+                                <></>
+                                )
+                            }
+                        </div>
+
+                        <Button outline onClick={handleTryAgain}>Try again!!!</Button>
+                    </div>
+
+                    <div className={cx('question')}>
                         {questions !== null ? (
-                            <>      
-                                {questions.map((data, state) => (
-                                    <QuestionPalette key={data} data={data} state={state} />
-                                ))}                                                                                                           
+                            <>       
+                                {questions.map((data, state) => ( 
+                                    <Question key={data} data={data} state={state} />  
+                                ))}                                                                                                                     
                             </>
                             ) : (
                             <></>
                             )
-                        }
+                        }                  
                     </div>
 
-                    <Button outline onClick={handleTryAgain}>Try again!!!</Button>
+                    <About />
                 </div>
 
-                <div className={cx('question')}>
-                    {questions !== null ? (
-                        <>       
-                            {questions.map((data, state) => ( 
-                                <Question key={data} data={data} state={state} />  
-                            ))}                                                                                                                     
-                        </>
-                        ) : (
-                        <></>
-                        )
-                    }                  
+                <div className={cx('footer')}>
+                    <Footer />
                 </div>
-
-                <About />
             </div>
-
-            <div className={cx('footer')}>
-                <Footer />
-            </div>
-        </div>
     )
 }
 

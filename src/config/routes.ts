@@ -2,11 +2,8 @@ const routes = {
     home: "/",
     result: "/result",
     apologize: "/apologize",
-<<<<<<< HEAD
     question: "/question",
-=======
     challenges: "/challenges",
->>>>>>> 64ca8540db4b599918535f4cc993bdac4be986cf
 
     question1: "/question1",
     question2: "/question2",

@@ -1,20 +1,27 @@
 import * as React from 'react';
-// import { useState } from 'react';
+import { useState, useContext } from 'react';
 import classNames from "classnames/bind";
 
 import styles from './QuestionPalette.module.scss';
 import Button from '../../../components/Button';
 
+// import { QuestionContext } from '../../../App';
+
 const cx = classNames.bind(styles)
 
-const QuestionPalette: React.FC<any> = ({ data, state }) => {
+const QuestionPalette: React.FC<any> = ({ data }) => {
+
+    // const { state } = useContext(QuestionContext)
+
+    // const [questionState, setQuestionState] = useState(state)
+    // console.log(`QuestionPalette ${data.number} `, questionState)
 
     const currentQuesState = localStorage.getItem(`${data.number}`)
     const btnState = currentQuesState
 
     const handleLinkToCurrQues = () => {
         const currNumberQues = data.number
-        window.location.href = `https://in-js-we-trust.vercel.app/question${currNumberQues}`
+        window.location.href = `${process.env.REACT_APP_BASE_URL}question${currNumberQues}`
     }
 
     return (
