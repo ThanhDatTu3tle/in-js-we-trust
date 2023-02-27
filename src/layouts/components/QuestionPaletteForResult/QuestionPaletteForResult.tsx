@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import classNames from "classnames/bind";
 
 import styles from './QuestionPaletteForResult.module.scss';
@@ -11,11 +11,13 @@ const QuestionPaletteForResult: React.FC<any> = ({ data }) => {
 
     const currentQuesState = localStorage.getItem(`${data.number}`)
     const rightQuesState = data.answer
-    const [btnState, setBtnState] = useState(currentQuesState === rightQuesState ? rightQuesState : null)
+
+    const btnState = currentQuesState === rightQuesState ? rightQuesState : null
+    // const [btnState, setBtnState] = useState(currentQuesState === rightQuesState ? rightQuesState : null)
 
     const handleLinkToCurrQues = () => {
         const currNumberQues = data.number
-        window.location.href = `${process.env.REACT_APP_BASE_URL}result#${currNumberQues}`
+        window.location.href = `https://in-js-we-trust.vercel.app/result#${currNumberQues}`
     }
 
     return (

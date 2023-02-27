@@ -22,6 +22,7 @@
             flex-direction: row;
             align-items: center;
             margin-bottom: 20px;
+            cursor: pointer;
 
             .checkbox-container {
                 width: 30px;
@@ -34,7 +35,6 @@
                     height: 100%;
                     border-style: solid;
                     border-radius: 12px;
-                    border-width: 0cap;
                     border-color: #181821cb;
 
                     &:hover {
@@ -48,7 +48,6 @@
                     height: 100%;
                     border-style: solid;
                     border-radius: 12px;
-                    border-width: 0cap;
                     border-color: #f05123;
                     background: #f04f23ab;
                 }
@@ -58,7 +57,6 @@
                     height: 100%;
                     border-style: solid;
                     border-radius: 12px;
-                    border-width: 0cap;
                     border-color: #f05123;
                     background: #f04f23ab;
                 }
@@ -68,7 +66,6 @@
                     height: 100%;
                     border-style: solid;
                     border-radius: 12px;
-                    border-width: 0cap;
                     border-color: #f05123;
                     background: #f04f23ab;
                 }
@@ -78,7 +75,6 @@
                     height: 100%;
                     border-style: solid;
                     border-radius: 12px;
-                    border-width: 0cap;
                     border-color: #f05123;
                     background: #f04f23ab;
                 }
