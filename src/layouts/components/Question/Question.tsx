@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import classNames from "classnames/bind";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -8,11 +9,17 @@ import styles from './Question.module.scss';
 import Image from '../../../components/Image';
 import Button from '../../../components/Button';
 
+import { RootState } from '../../../redux/store/store';
+import { checked } from '../../../redux/features/checkedSlice';
+
 // import { QuestionContext } from '../../../App';
 
 const cx = classNames.bind(styles)
 
 const Question: React.FC<any> = ({ data }) => {
+
+    const check = useSelector((state: RootState) => state.checked.value)
+    const dispatch = useDispatch()
 
     const MySwal = withReactContent(Swal);
     // const { state } = useContext(QuestionContext)
@@ -33,7 +40,7 @@ const Question: React.FC<any> = ({ data }) => {
         if (checkboxA === '') {
             setCheckboxA('A')
             localStorage.setItem(`${data.number}`, 'A')
-            // setQuestionState(true)
+            dispatch(checked())
             setCheckboxB('')
             setCheckboxC('')
             setCheckboxD('')

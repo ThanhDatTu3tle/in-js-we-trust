@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Fragment } from "react";
 import {
   BrowserRouter as Router,
@@ -9,11 +9,12 @@ import {
 import { MainLayout } from "./layouts/MainLayout";
 import { publicRoutes } from "./routes";
 
-export const QuestionContext = React.createContext({ state: false })
-
 const App: React.FC = () => {
+
+  // const [copy, setCopy] = useState<string>(getCopy('Admin'))
+
   return (
-    <QuestionContext.Provider value={{ state: false }}>
+    // <MyGlobalContext.Provider value= {{ copy, setCopy }}>
       <Router>
         <div className="App">
           <Routes>
@@ -44,7 +45,7 @@ const App: React.FC = () => {
           </Routes>
         </div>
       </Router>
-    </QuestionContext.Provider>
+    // </MyGlobalContext.Provider>
   );
 }
 

@@ -10,8 +10,6 @@ import Apologize from "../pages/Apologize/Apologize";
 
 import QuestionChallenge from "../pages/Challenge/QuestionChallenge";
 
-import Challenges from "../pages/Challenge/Challenges/Challenges";
-
 import Question1 from "../pages/Challenge/Question1";
 import Question2 from "../pages/Challenge/Question2";
 import Question3 from "../pages/Challenge/Question3";
@@ -25,7 +23,6 @@ const publicRoutes = [
     { path: config.routes.result, component: Result, layout: MainLayout },
     { path: config.routes.apologize, component: Apologize, layout: MainLayout },
     { path: config.routes.question, component: QuestionChallenge, layout: MainLayout },
-    { path: config.routes.challenges, component: Challenges, layout: MainLayout },
 
     { path: config.routes.question1, component: Question1, layout: MainLayout },
     { path: config.routes.question2, component: Question2, layout: MainLayout },

@@ -1,9 +1,13 @@
 import * as React from 'react';
 import { useState, useContext } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
 import classNames from "classnames/bind";
 
 import styles from './QuestionPalette.module.scss';
 import Button from '../../../components/Button';
+
+import { RootState } from '../../../redux/store/store';
+import { checked } from '../../../redux/features/checkedSlice';
 
 // import { QuestionContext } from '../../../App';
 
@@ -17,7 +21,8 @@ const QuestionPalette: React.FC<any> = ({ data }) => {
     // console.log(`QuestionPalette ${data.number} `, questionState)
 
     const currentQuesState = localStorage.getItem(`${data.number}`)
-    const btnState = currentQuesState
+    // const btnState = currentQuesState
+    const  btnState = checked()
 
     const handleLinkToCurrQues = () => {
         const currNumberQues = data.number
@@ -26,7 +31,7 @@ const QuestionPalette: React.FC<any> = ({ data }) => {
 
     return (
         <div className={cx('wrapper')}>
-            {btnState === null ? (
+            {btnState === false ? (
                 <><Button tiny onClick={handleLinkToCurrQues} key={data} data={data}>{data.number}</Button></>
             ) : (
                 <><Button tinyActive onClick={handleLinkToCurrQues}>{data.number}</Button></>

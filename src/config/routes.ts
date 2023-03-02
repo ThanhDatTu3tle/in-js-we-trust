@@ -3,7 +3,6 @@ const routes = {
     result: "/result",
     apologize: "/apologize",
     question: "/question",
-    challenges: "/challenges",
 
     question1: "/question1",
     question2: "/question2",
