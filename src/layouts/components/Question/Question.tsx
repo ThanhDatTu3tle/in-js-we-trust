@@ -10,7 +10,8 @@ import Image from '../../../components/Image';
 import Button from '../../../components/Button';
 
 import { RootState } from '../../../redux/store/store';
-import { checked } from '../../../redux/features/checkedSlice';
+import { active, inactive } from '../../../redux/features/checkedSlice';
+import { act } from 'react-dom/test-utils';
 
 // import { QuestionContext } from '../../../App';
 
@@ -19,6 +20,7 @@ const cx = classNames.bind(styles)
 const Question: React.FC<any> = ({ data }) => {
 
     const check = useSelector((state: RootState) => state.checked.value)
+    console.log(check)
     const dispatch = useDispatch()
 
     const MySwal = withReactContent(Swal);
@@ -39,13 +41,14 @@ const Question: React.FC<any> = ({ data }) => {
     const handleActiveA = () => {
         if (checkboxA === '') {
             setCheckboxA('A')
+            dispatch(active)
             localStorage.setItem(`${data.number}`, 'A')
-            dispatch(checked())
             setCheckboxB('')
             setCheckboxC('')
             setCheckboxD('')
         } else if (checkboxA === 'A') {
             setCheckboxA('')
+            dispatch(inactive)
             localStorage.setItem(`${data.number}`, '')
         }
     }

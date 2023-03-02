@@ -7,7 +7,7 @@ import styles from './QuestionPalette.module.scss';
 import Button from '../../../components/Button';
 
 import { RootState } from '../../../redux/store/store';
-import { checked } from '../../../redux/features/checkedSlice';
+import { active, inactive } from '../../../redux/features/checkedSlice';
 
 // import { QuestionContext } from '../../../App';
 
@@ -15,14 +15,17 @@ const cx = classNames.bind(styles)
 
 const QuestionPalette: React.FC<any> = ({ data }) => {
 
+    const check = useSelector((state: RootState) => state.checked.value)
+    console.log(check)
+
     // const { state } = useContext(QuestionContext)
 
     // const [questionState, setQuestionState] = useState(state)
     // console.log(`QuestionPalette ${data.number} `, questionState)
 
-    const currentQuesState = localStorage.getItem(`${data.number}`)
+    // const currentQuesState = localStorage.getItem(`${data.number}`)
     // const btnState = currentQuesState
-    const  btnState = checked()
+    const btnState = check
 
     const handleLinkToCurrQues = () => {
         const currNumberQues = data.number
@@ -31,7 +34,7 @@ const QuestionPalette: React.FC<any> = ({ data }) => {
 
     return (
         <div className={cx('wrapper')}>
-            {btnState === false ? (
+            {btnState === 'active' ? (
                 <><Button tiny onClick={handleLinkToCurrQues} key={data} data={data}>{data.number}</Button></>
             ) : (
                 <><Button tinyActive onClick={handleLinkToCurrQues}>{data.number}</Button></>
